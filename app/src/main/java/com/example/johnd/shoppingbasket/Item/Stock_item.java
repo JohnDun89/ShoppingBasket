@@ -6,5 +6,5 @@ import com.example.johnd.shoppingbasket.Buyable;
  * Created by JohnD on 01/12/2017.
  */
 
-public class Hubs extends Stock_item {
+public abstract class Stock_item implements Buyable {
 }
