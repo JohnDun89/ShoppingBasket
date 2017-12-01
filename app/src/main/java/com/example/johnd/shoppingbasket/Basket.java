@@ -8,4 +8,13 @@ import java.util.ArrayList;
 
 public class Basket {
 
+    public ArrayList<Buyable> current_items;
+
+    public Basket(){
+      this.current_items = new ArrayList<Buyable>();
+    }
+
+    public ArrayList getBasket(){
+        return this.current_items;
+    }
 }
