@@ -9,21 +9,21 @@ import com.example.johnd.shoppingbasket.Buyable;
 public abstract class StockItem implements Buyable {
 
     private String name;
-    private Integer price;
+    private Double price;
 
     public String getName(){
         return name;
     }
 
-    public void setname(String input){
+    public void setName(String input){
         name = input;
     }
 
-    public Integer getPrice(){
+    public Double getPrice(){
         return price;
     }
 
-    public void setPrice(Integer input){
+    public void setPrice(Double input){
         price = input;
     }
 }

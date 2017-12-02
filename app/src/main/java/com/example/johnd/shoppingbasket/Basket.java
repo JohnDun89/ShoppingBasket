@@ -27,4 +27,9 @@ public class Basket {
     public void removeItem(Buyable buyable) {
         this.current_items.remove(buyable);
     }
+
+    public Double returnValueOfBasket(){
+        Double total = 0.0;
+
+    }
 }
