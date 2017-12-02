@@ -1,5 +1,7 @@
 package com.example.johnd.shoppingbasket;
 
+import com.example.johnd.shoppingbasket.Item.Brakes;
+
 import java.util.ArrayList;
 
 /**
@@ -16,5 +18,9 @@ public class Basket {
 
     public ArrayList getBasket(){
         return this.current_items;
+    }
+
+    public void addItem(Buyable buyable) {
+        this.current_items.add(buyable);
     }
 }

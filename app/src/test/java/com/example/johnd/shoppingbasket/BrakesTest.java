@@ -25,4 +25,10 @@ public class BrakesTest {
         brake.setname("Shimano XT front");
         assertEquals(brake.getName(),"Shimano XT front");
     }
+
+    @Test
+    public void canSetPrice(){
+        brake.setPrice(75);
+        assertEquals(brake.getPrice(),75,0.01);
+    }
 }
