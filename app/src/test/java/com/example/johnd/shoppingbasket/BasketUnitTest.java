@@ -40,4 +40,15 @@ public class BasketUnitTest {
         basket.addItem(tyre);
         assertEquals(2,basket.getBasket().size());
     }
+
+    @Test
+    public void canRemoveItemFromBasket(){
+        Basket basket = new Basket();
+        Brakes brake = new Brakes();
+        Tyre tyre = new Tyre();
+        basket.addItem(brake);
+        basket.addItem(tyre);
+        basket.removeItem(brake);
+        assertEquals(tyre, basket.getBasket().get(0));
+    }
 }

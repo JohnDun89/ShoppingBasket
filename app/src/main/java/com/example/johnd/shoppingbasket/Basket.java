@@ -23,4 +23,8 @@ public class Basket {
     public void addItem(Buyable buyable) {
         this.current_items.add(buyable);
     }
+
+    public void removeItem(Buyable buyable) {
+        this.current_items.remove(buyable);
+    }
 }
