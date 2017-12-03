@@ -1,6 +1,7 @@
 package com.example.johnd.shoppingbasket;
 
 import com.example.johnd.shoppingbasket.Item.Brakes;
+import com.example.johnd.shoppingbasket.Item.InnerTube;
 import com.example.johnd.shoppingbasket.Item.Tyre;
 
 import org.junit.Before;
@@ -40,11 +41,21 @@ public class CheckOutTest {
         Basket basket = new Basket();
         Tyre tyre = new Tyre();
         basket.addItem(tyre);
-        CheckOut checkOut = new CheckOut(basket.getBasket());
+        CheckOut checkOut = new CheckOut(basket);
         assertEquals(100,checkOut.getTillFloat(),0.01);
 
     }
 
+    @Test
+    public void discountIsAppliedOnItemOverTwentyPounds(){
+        Basket basket = new Basket();
+        InnerTube tube = new InnerTube();
+        tube.setPrice(5.00);
+        basket.addItem(tube);
+        CheckOut smallTransaction = new CheckOut(basket);
+        assertEquals(5.00, smallTransaction.purchase(),0.01);
+
+    }
 
 
 }

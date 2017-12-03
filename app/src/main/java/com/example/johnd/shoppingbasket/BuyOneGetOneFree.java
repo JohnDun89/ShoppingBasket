@@ -5,5 +5,5 @@ package com.example.johnd.shoppingbasket;
  */
 
 public interface BuyOneGetOneFree {
-
+    public Boolean buyOneGetOneFree = true;
 }
