@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 
 /**
  * Created by JohnD on 03/12/2017.
@@ -32,7 +33,8 @@ public class CheckOut {
 
     }
 
-    public Double purchase() {
+    public Double purchase(Boolean customerHasCard) {
+
         Double total = 0.00;
         ArrayList<Buyable> allItemsList = basket;
 
@@ -43,7 +45,12 @@ public class CheckOut {
 
         }
 //        total -= buyOneGetOneFreeDiscount;
-        return total;
+        if (customerHasCard == true){
+          Double loyaltyAmount = total *0.98;
+          return loyaltyAmount;
+
+        }
+        else  return total;
     }
 
 
@@ -53,6 +60,9 @@ public class CheckOut {
         else return item.getPrice() * 0.9;
     }
 
+
+    // following does not work, but this is my attempt thus far. I wanted to map the items that are buy one get one free,
+    // then count if they appear twice, then get the items value and return that as a negative double to take of the total amount.
     public Double doesBasketContainBuyOneGetOneFreeItem() {
         ArrayList<Buyable> basket = this.basket;
 

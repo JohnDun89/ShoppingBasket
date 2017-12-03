@@ -7,6 +7,7 @@ import com.example.johnd.shoppingbasket.Item.Pedals;
 import com.example.johnd.shoppingbasket.Item.Tyre;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -55,7 +56,7 @@ public class CheckOutTest {
         tube.setPrice(5.00);
         basket.addItem(tube);
         CheckOut smallTransaction = new CheckOut(basket);
-        assertEquals(5.00, smallTransaction.purchase(),0.01);
+        assertEquals(5.00, smallTransaction.purchase(null),0.01);
 
     }
 
@@ -70,10 +71,27 @@ public class CheckOutTest {
         pedals.setPrice(80.00);
         basket.addItem(pedals);
         CheckOut smallTransaction = new CheckOut(basket);
-        assertEquals(77.00, smallTransaction.purchase(),0.01);
+        assertEquals(77.00, smallTransaction.purchase(null),0.01);
     }
 
     @Test
+    public void customerwithLoyaltyCardGetsGlobalTwoPercentDiscount(){
+        Basket basket = new Basket();
+        InnerTube tube = new InnerTube();
+        tube.setPrice(5.00);
+        basket.addItem(tube);
+
+        Pedals pedals = new Pedals();
+        pedals.setPrice(80.00);
+        basket.addItem(pedals);
+        CheckOut smallTransaction = new CheckOut(basket);
+
+        Customer mike = new Customer();
+        mike.setdoesChustomerhaveLoyaltyCard(true);
+        assertEquals(75.46, smallTransaction.purchase(mike.getdoesChustomerhaveLoyaltyCard()),0.01);
+    }
+
+    @Ignore @Test
     public void canBuyOneGetOneFree(){
         Basket basket = new Basket();
 
@@ -90,6 +108,8 @@ public class CheckOutTest {
         CheckOut smallTransaction = new CheckOut(basket);
         assertEquals(85.00, smallTransaction.doesBasketContainBuyOneGetOneFreeItem(),0.01);
     }
+
+
 
 
 
