@@ -11,7 +11,7 @@ public class CustomerTest {
 
 
     @Test
-    public void getdoesChustomerhaveLoyaltyCard() throws Exception {
+    public void getDoesCustomerHaveLoyaltyCard() throws Exception {
         Customer customer = new Customer();
         customer.setdoesChustomerhaveLoyaltyCard(Boolean.TRUE);
         assertTrue(customer.getdoesChustomerhaveLoyaltyCard());

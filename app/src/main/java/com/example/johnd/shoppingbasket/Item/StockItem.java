@@ -10,6 +10,7 @@ public abstract class StockItem implements Buyable {
 
     private String name;
     private Double price;
+    private Boolean getOneFree;
 
     public String getName(){
         return name;
@@ -26,4 +27,13 @@ public abstract class StockItem implements Buyable {
     public void setPrice(Double input){
         price = input;
     }
+
+    public void setBuyOneGetOneFree(Boolean state){
+        getOneFree = state;
+    }
+
+    public Boolean getIsBuyOneFree(){
+        return getOneFree;
+    }
+
 }

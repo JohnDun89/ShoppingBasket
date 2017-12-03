@@ -1,7 +1,9 @@
 package com.example.johnd.shoppingbasket;
 
 import com.example.johnd.shoppingbasket.Item.Brakes;
+import com.example.johnd.shoppingbasket.Item.Hubs;
 import com.example.johnd.shoppingbasket.Item.InnerTube;
+import com.example.johnd.shoppingbasket.Item.Pedals;
 import com.example.johnd.shoppingbasket.Item.Tyre;
 
 import org.junit.Before;
@@ -47,7 +49,7 @@ public class CheckOutTest {
     }
 
     @Test
-    public void discountIsAppliedOnItemOverTwentyPounds(){
+    public void discountIsAppliedOnItemOverTwentyPoundsOnly(){
         Basket basket = new Basket();
         InnerTube tube = new InnerTube();
         tube.setPrice(5.00);
@@ -56,6 +58,43 @@ public class CheckOutTest {
         assertEquals(5.00, smallTransaction.purchase(),0.01);
 
     }
+
+    @Test
+    public void discountIsAppliedTocorrectItems(){
+        Basket basket = new Basket();
+        InnerTube tube = new InnerTube();
+        tube.setPrice(5.00);
+        basket.addItem(tube);
+
+        Pedals pedals = new Pedals();
+        pedals.setPrice(80.00);
+        basket.addItem(pedals);
+        CheckOut smallTransaction = new CheckOut(basket);
+        assertEquals(77.00, smallTransaction.purchase(),0.01);
+    }
+
+    @Test
+    public void canBuyOneGetOneFree(){
+        Basket basket = new Basket();
+
+        Hubs hope = new Hubs();
+        hope.setPrice(40.00);
+        hope.setBuyOneGetOneFree(Boolean.TRUE);
+        basket.addItem(hope);
+        basket.addItem(hope);
+
+        InnerTube tube = new InnerTube();
+        tube.setPrice(5.00);
+        basket.addItem(tube);
+
+        CheckOut smallTransaction = new CheckOut(basket);
+        assertEquals(85.00, smallTransaction.doesBasketContainBuyOneGetOneFreeItem(),0.01);
+    }
+
+
+
+
+
 
 
 }
