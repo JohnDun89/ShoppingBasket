@@ -33,4 +33,8 @@ public class Basket {
         }
         return total;
     }
+
+    public void emptyBasket(){
+        this.current_items.clear();
+    }
 }

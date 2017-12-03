@@ -1,6 +1,7 @@
 package com.example.johnd.shoppingbasket;
 
 import com.example.johnd.shoppingbasket.Item.Brakes;
+import com.example.johnd.shoppingbasket.Item.Hubs;
 import com.example.johnd.shoppingbasket.Item.Tyre;
 
 import org.junit.Before;
@@ -14,7 +15,6 @@ import static junit.framework.Assert.assertNull;
  */
 
 public class BasketUnitTest {
-
 
 
 
@@ -67,5 +67,15 @@ public class BasketUnitTest {
         basket.addItem(brake);
         basket.addItem(tyre);
         assertEquals(130.00,basket.getValueOfBasket());
+    }
+
+    @Test
+    public void emptyBasket() throws Exception {
+        Basket basket = new Basket();
+        Hubs hub = new Hubs();
+        basket.addItem(hub);
+        assertEquals(1,basket.getBasket().size());
+        basket.emptyBasket();
+        assertEquals(0,basket.getBasket().size());
     }
 }
