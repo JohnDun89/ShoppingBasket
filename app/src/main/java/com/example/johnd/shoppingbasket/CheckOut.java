@@ -13,7 +13,7 @@ public class CheckOut {
 
     public CheckOut(ArrayList<Buyable> basket){
         this.basket = new ArrayList<Buyable>();
-        this.tillFloat = 0.0;
+        this.tillFloat = 100.00;
     }
 
     public Double getTillFloat(){
@@ -21,7 +21,5 @@ public class CheckOut {
 
     }
 
-    public void setTillFloat(Double amount){
-        this.tillFloat = amount;
-    }
+
 }

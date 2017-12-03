@@ -13,6 +13,8 @@ import static org.junit.Assert.*;
  */
 public class CheckOutTest {
 
+    Basket largePurchase;
+
     @Before
     public void setUp(){
         Basket largePurchase = new Basket();
@@ -30,6 +32,8 @@ public class CheckOutTest {
         largePurchase.addItem(maxis);
         largePurchase.addItem(shimanoSaintFront);
 
+
+
     }
     @Test
     public void getTillFloat() throws Exception {
@@ -37,12 +41,10 @@ public class CheckOutTest {
         Tyre tyre = new Tyre();
         basket.addItem(tyre);
         CheckOut checkOut = new CheckOut(basket.getBasket());
-        assertEquals(0,checkOut.getTillFloat(),0.01);
+        assertEquals(100,checkOut.getTillFloat(),0.01);
 
     }
 
-//    @Test
-//    public void setTillFloat() throws Exception {
-//    }
+
 
 }
