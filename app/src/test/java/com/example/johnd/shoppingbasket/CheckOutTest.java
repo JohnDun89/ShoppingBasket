@@ -56,7 +56,7 @@ public class CheckOutTest {
         tube.setPrice(5.00);
         basket.addItem(tube);
         CheckOut smallTransaction = new CheckOut(basket);
-        assertEquals(5.00, smallTransaction.purchase(null),0.01);
+        assertEquals(5.00, smallTransaction.purchase(false),0.01);
 
     }
 
@@ -71,7 +71,7 @@ public class CheckOutTest {
         pedals.setPrice(80.00);
         basket.addItem(pedals);
         CheckOut smallTransaction = new CheckOut(basket);
-        assertEquals(77.00, smallTransaction.purchase(null),0.01);
+        assertEquals(77.00, smallTransaction.purchase(false),0.01);
     }
 
     @Test
