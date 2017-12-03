@@ -15,6 +15,9 @@ import static junit.framework.Assert.assertNull;
 
 public class BasketUnitTest {
 
+
+
+
     @Test
     public void canGetEmptyArray(){
         Basket basket = new Basket();
@@ -25,8 +28,8 @@ public class BasketUnitTest {
     public void canAddItemToBasket(){
         Basket basket = new Basket();
         Brakes brake = new Brakes();
-        brake.setPrice(75);
-        brake.setname("Avid juicy");
+        brake.setPrice(75.00);
+        brake.setName("Avid juicy");
         basket.addItem(brake);
         assertEquals(1,basket.getBasket().size());
     }
@@ -50,5 +53,19 @@ public class BasketUnitTest {
         basket.addItem(tyre);
         basket.removeItem(brake);
         assertEquals(tyre, basket.getBasket().get(0));
+    }
+
+    @Test
+    public void returnValueOfBasket() throws Exception {
+        Basket basket = new Basket();
+        Brakes brake = new Brakes();
+        brake.setPrice(75.00);
+        brake.setName("Avid juicy");
+        Tyre tyre = new Tyre();
+        tyre.setPrice(55.00);
+        tyre.setName("Maxis High Roller");
+        basket.addItem(brake);
+        basket.addItem(tyre);
+        assertEquals(130.00,basket.getValueOfBasket());
     }
 }

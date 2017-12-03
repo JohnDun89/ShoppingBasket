@@ -1,7 +1,5 @@
 package com.example.johnd.shoppingbasket;
 
-import com.example.johnd.shoppingbasket.Item.Brakes;
-
 import java.util.ArrayList;
 
 /**
@@ -13,7 +11,7 @@ public class Basket {
     public ArrayList<Buyable> current_items;
 
     public Basket(){
-      this.current_items = new ArrayList<Buyable>();
+      this.current_items =  new ArrayList<Buyable>();
     }
 
     public ArrayList getBasket(){
@@ -28,8 +26,11 @@ public class Basket {
         this.current_items.remove(buyable);
     }
 
-    public Double returnValueOfBasket(){
+    public Double getValueOfBasket(){
         Double total = 0.0;
-
+        for (Buyable item : this.current_items) {
+            total += item.getPrice();
+        }
+        return total;
     }
 }

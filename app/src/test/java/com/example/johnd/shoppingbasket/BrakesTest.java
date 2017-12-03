@@ -22,13 +22,13 @@ public class BrakesTest {
 
     @Test
     public void canSetBrakeName(){
-        brake.setname("Shimano XT front");
+        brake.setName("Shimano XT front");
         assertEquals(brake.getName(),"Shimano XT front");
     }
 
     @Test
     public void canSetPrice(){
-        brake.setPrice(75);
+        brake.setPrice(75.00);
         assertEquals(brake.getPrice(),75,0.01);
     }
 }
